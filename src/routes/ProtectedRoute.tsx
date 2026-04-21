@@ -17,7 +17,7 @@ export function ProtectedRoute({ allowedRoles }: ProtectedRouteProps) {
     if (signed && user && !allowedRoles.includes(user[UserKeys.ROLE])) {
       showToast(
         "warn",
-        "Acesso Negado",
+        "Acesso Negado para voce",
         "Você não tem permissão para acessar esta área.",
       );
     }
