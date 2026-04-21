@@ -1,12 +1,14 @@
 import { Button, ButtonSeverity, ButtonVariant } from '@/components/Button'
 import { useAuthContext } from '@/contexts/Auth'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 
 import logoPath from '../../assets/logo.png'
 import { UserKeys, UserRole } from '@/Interfaces/Auth'
+import { PageRoutesKeys } from '@/Interfaces/Routes'
 
 export const MainLayout = () => {
   const { user, logout } = useAuthContext()
+  const navigate = useNavigate()
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-column">
@@ -29,7 +31,7 @@ export const MainLayout = () => {
         <div className="flex align-items-center gap-2 md:gap-4">
           <div className="hidden sm:flex align-items-center gap-2 text-700">
             <i className="pi pi-user bg-blue-50 p-2 border-round-circle text-primary"></i>
-            <span className="font-medium text-sm">
+            <span className="font-medium text-sm" onClick={() => navigate(PageRoutesKeys.LOGIN)}>
               Olá, {user?.name || 'Visitante'}
             </span>
           </div>
