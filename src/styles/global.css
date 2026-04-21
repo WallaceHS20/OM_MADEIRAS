@@ -1,0 +1,86 @@
+:root {
+  --primary-color: #2563eb;      /* azul */
+  --text-color: #111827;         /* quase preto */
+  --surface-ground: #f9fafb;     /* fundo geral */
+  --surface-card: #ffffff;       /* cards */
+}
+
+.bg-primary{
+  background-color: #2563eb !important;
+}
+
+.bg-danger {
+  background-color: #dc2626 !important;
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+.text-dark {
+  color: #111827 !important;
+}
+
+body {
+  background-color: var(--bg-color);
+  margin: 0;
+  font-family: var(--font-family);
+}
+
+/* global.css */
+
+.bg-gradient-hero {
+    /* Gradiente mais forte na esquerda e embaixo para destacar o texto branco */
+    background: linear-gradient(
+        45deg, 
+        rgba(0, 0, 0, 0.9) 0%, 
+        rgba(0, 0, 0, 0.4) 50%, 
+        rgba(0, 0, 0, 0.1) 100%
+    );
+}
+
+.hero-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Sombra no texto para não sumir */
+}
+
+.contact-section {
+  background-color: var(--bg-color);
+  padding: 3rem 1.5rem;
+}
+
+.contact-card {
+  background: white;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Garante que tudo dentro do card fique centralizado */
+  text-align: center;
+}
+
+/* Limite para a Imagem Retrato */
+.contact-portrait-img {
+    width: 100%;
+    max-width: 200px; /* LIMITE DE LARGURA AQUI */
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1.5rem; /* Espaço para o título */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.contact-title {
+  color: var(--secondary-color);
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.contact-subtitle {
+  color: #666;
+  margin-bottom: 2rem;
+}
