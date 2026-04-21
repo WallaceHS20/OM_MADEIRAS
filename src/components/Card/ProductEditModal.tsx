@@ -5,7 +5,6 @@ import { InputText } from 'primereact/inputtext'
 import { InputNumber } from 'primereact/inputnumber'
 import { InputTextarea } from 'primereact/inputtextarea'
 import { Dropdown } from 'primereact/dropdown'
-import { InputSwitch } from 'primereact/inputswitch'
 import { Divider } from 'primereact/divider'
 import { Product } from '.'
 

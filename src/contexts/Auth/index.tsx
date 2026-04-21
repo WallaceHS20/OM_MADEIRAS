@@ -50,6 +50,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   const login = async (data: IAuthParams) => {
     try {
+      console.log(data === data)
       Loading.show('Validando login...')
       //const response = await AuthService.authLogin(data);
       //const { user: userData, token } = response;

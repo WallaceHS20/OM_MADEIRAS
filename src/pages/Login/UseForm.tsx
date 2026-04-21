@@ -26,7 +26,7 @@ interface Props {
 }
 
 export const useForm = (): Props => {
-  const { Loading, showToast } = useNotificationContext()
+  const { showToast } = useNotificationContext()
   const { handleError } = useError()
   const { login } = useAuthContext()
   const navigate = useNavigate()

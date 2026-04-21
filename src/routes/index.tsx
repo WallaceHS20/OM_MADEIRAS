@@ -1,8 +1,7 @@
 import { ErrorBoundary } from '@/components/ErrorComponents/ErrorBoundary'
 import { lazy, Suspense } from 'react'
-import { createBrowserRouter, Navigate } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom'
 import { PageRoutesKeys } from '../Interfaces/Routes'
-import { RequireAuth } from './RequireAuth'
 import { NotFound } from '@/components/ErrorComponents/NotFound'
 import { MainLayout } from '@/components/Layout'
 
