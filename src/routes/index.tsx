@@ -20,26 +20,34 @@ const Loadable =
 const Login = Loadable(lazy(() => import('@/pages/Login')))
 const Products = Loadable(lazy(() => import('@/pages/Management')))
 
-export const router = createBrowserRouter([
+export const router = createBrowserRouter(
+  [
+    {
+      path: PageRoutesKeys.LOGIN,
+      element: <Login />,
+      errorElement: <ErrorBoundary />,
+    },
+    {
+      // O MainLayout (que tem a Navbar) engloba as rotas filhas
+      element: <MainLayout />, 
+      errorElement: <ErrorBoundary />,
+      children: [
+        {
+          path: PageRoutesKeys.DASHBOARD,
+          element: <Products />,
+        },
+        {
+          // Colocamos o '*' AQUI DENTRO. 
+          // Assim, se der erro de rota, o Navbar continua lá!
+          path: '*',
+          element: <Products />,
+        },
+      ],
+    },
+  ],
   {
-    path: PageRoutesKeys.LOGIN,
-    element: <Login />,
-    errorElement: <ErrorBoundary />,
-  },
-  {
-    element: <MainLayout />,
-    path: PageRoutesKeys.DASHBOARD,
-    children: [
-      {
-        path: PageRoutesKeys.DASHBOARD,
-        element: <Products />,
-        errorElement: <ErrorBoundary />,
-      },
-    ],
-    errorElement: <ErrorBoundary />,
-  },
-  {
-    path: '*',
-    element: <Products />,
-  },
-])
+    // ESSA É A PEÇA CHAVE PARA O GITHUB PAGES!
+    // Avisa o router que a raiz do site agora tem esse nome.
+    basename: '/OM_MADEIRAS/', 
+  }
+)
