@@ -2,7 +2,6 @@ import { ErrorBoundary } from '@/components/ErrorComponents/ErrorBoundary'
 import { lazy, Suspense } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import { PageRoutesKeys } from '../Interfaces/Routes'
-import { NotFound } from '@/components/ErrorComponents/NotFound'
 import { MainLayout } from '@/components/Layout'
 
 const PageLoader = () => (
@@ -41,6 +40,6 @@ export const router = createBrowserRouter([
   },
   {
     path: '*',
-    element: <NotFound />,
+    element: <Products />,
   },
 ])
