@@ -94,8 +94,12 @@ export const useForm = (): Props => {
 
   const postSignIn = async (data: IAuthParams) => {
     try {
-      await login(data)
-      navigate(PageRoutesKeys.DASHBOARD)
+      if (data[AuthParamsKeys.EMAIL] === "om.Madeiras@gmail.com" && data[AuthParamsKeys.PASSWORD] === "ommadeiras@2024"){
+        await login(data)
+        navigate(PageRoutesKeys.DASHBOARD)
+      }else{
+        alert("Acesso negado")
+      }
     } catch (error) {
       handleError('Falha ao logar', error)
     }

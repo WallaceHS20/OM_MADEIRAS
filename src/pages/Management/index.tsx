@@ -37,7 +37,6 @@ export default function Products() {
   useEffect(() => {
     const unsubscribe = subscribeProducts((data) => {
       setProducts(data);
-      console.log(data)
       setLoading(false);
     });
 

@@ -13,7 +13,7 @@ export const MainLayout = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-column">
       <header className="bg-white shadow-1 h-4rem px-3 md:px-6 flex align-items-center justify-content-between sticky top-0 z-5">
-        <div className="flex align-items-center gap-2">
+        <div className="flex align-items-center gap-2" onClick={() => navigate(PageRoutesKeys.LOGIN)}>
           <img
             src={logoPath}
             alt="logo"
