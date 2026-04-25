@@ -84,3 +84,37 @@ body {
   color: #666;
   margin-bottom: 2rem;
 }
+
+
+/* Faz as setas ficarem nas extremidades */
+.custom-galleria .p-galleria-item-prev,
+.custom-galleria .p-galleria-item-next {
+    position: absolute;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.3); /* Fundo semi-transparente */
+    border-radius: 50%;
+    margin: 0 10px; /* Distância da borda */
+    transition: background-color 0.3s;
+}
+
+.custom-galleria .p-galleria-item-prev:hover,
+.custom-galleria .p-galleria-item-next:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Alinha a seta da esquerda na extremidade esquerda */
+.custom-galleria .p-galleria-item-prev {
+    left: 0;
+}
+
+/* Alinha a seta da direita na extremidade direita */
+.custom-galleria .p-galleria-item-next {
+    right: 0;
+}
+
+/* Esconde o fundo escuro padrão se quiser algo mais limpo */
+.custom-galleria .p-galleria-item-navigators {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0;
+}

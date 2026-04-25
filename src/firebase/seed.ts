@@ -1,6 +1,23 @@
 import { db } from '@/firebase/config'
 import { doc, setDoc } from 'firebase/firestore'
 
+// 1. Alterado para aceitar .jpg e .jpeg
+const images = import.meta.glob('@/assets/products/*.{jpeg,jpg}', {
+  eager: true,
+  import: 'default'
+}) as Record<string, string>
+
+// 2. Melhorado o Regex para aceitar traço, ponto ou underline
+const getImagesByProductId = (id: number): string[] => {
+  const matched = Object.keys(images).filter((path) =>
+    // Agora aceita id-1, id.1 ou id_1
+    path.match(new RegExp(`/${id}[-._]`)) || path.endsWith(`/${id}.jpeg`) || path.endsWith(`/${id}.jpg`)
+  )
+
+  if (matched.length === 0) return []
+  return matched.map((key) => images[key])
+}
+
 const productsMock = [
   {
     id: 1,
@@ -75,15 +92,17 @@ const productsMock = [
 export const seedProducts = async () => {
   try {
     for (const product of productsMock) {
+      const productImages = getImagesByProductId(product.id)
+
       const payload = {
         ...product,
-        images: [`${product.id}.jpeg`], // 🔥 aqui está o segredo
+        images: productImages.length > 0 ? productImages : [],
         createdAt: new Date(),
       }
 
       await setDoc(doc(db, 'products', String(product.id)), payload)
 
-      console.log(`✅ Produto ${product.id} cadastrado`)
+      console.log(`✅ Produto ${product.id} cadastrado com ${productImages.length} imagens`)
     }
 
     console.log('🚀 Seed finalizado!')
