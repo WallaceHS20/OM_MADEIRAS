@@ -1,5 +1,5 @@
 export const useWhatsApp = () => {
-    const PHONE_NUMBER = '5512996141491';
+    const PHONE_NUMBER = '5512997276274';
 
     const sendBudgetRequest = (product: any, data: { quantity: number, hasVarnish: boolean, clientName: string }) => {
         const unitPrice = data.hasVarnish ? product.basePrice + 100 : product.basePrice;
